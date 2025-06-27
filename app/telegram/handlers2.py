@@ -41,7 +41,7 @@ async def add_client(message: types.Message):
     session.commit()
     await message.answer(f"Клиент @{client_username} добавлен.")
 
-# ✅ Новый FSM-старт для УТП
+
 @router.message(Command("make_offer"))
 async def start_make_offer(message: types.Message, state: FSMContext):
     session = get_session()
@@ -55,7 +55,7 @@ async def start_make_offer(message: types.Message, state: FSMContext):
     await state.set_state(OfferStates.waiting_for_description)
     await message.answer("Пожалуйста, введите описание ваших услуг для генерации УТП:")
 
-# ✅ Обработка ввода описания
+
 @router.message(OfferStates.waiting_for_description)
 async def process_offer_description(message: types.Message, state: FSMContext):
     session = get_session()

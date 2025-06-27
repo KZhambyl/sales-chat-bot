@@ -13,5 +13,5 @@ class Client(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     telegram_username: str
     user_id: int = Field(foreign_key="user.id")
-    offer_sent: bool = Field(default=False)  # Флаг, отправлено ли УТП клиенту
+    offer_sent: bool = Field(default=False)
     user: Optional[User] = Relationship(back_populates="clients") 
