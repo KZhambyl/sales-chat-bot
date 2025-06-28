@@ -5,7 +5,7 @@ from app.telegram.states import OfferStates
 from app.db import get_session
 from app.models import User, Client
 from sqlmodel import select
-from ai import generate_reply, generate_offer
+from app.ai import generate_reply, generate_offer
 
 router = Router()
 
